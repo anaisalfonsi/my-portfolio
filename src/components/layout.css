@@ -1,0 +1,183 @@
+/*
+Theme Name: Anaïs Alfonsi Portfolio
+Author: Anaïs Alfonsi (https://fr.linkedin.com/in/anaisalfonsi007)
+Description: Anaïs Alfonsi Theme
+Version: 1.0
+*/
+
+/* Table of contents
+––––––––––––––––––––––––––––––––––––––––––––––––––
+- General Notes
+- Imports
+- Colors
+- Elements
+- Repetitive Design
+*/
+
+/* General Notes
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+- Z-index values: -20, -10, 1, 10, 20, 30, 40, 50..., 90, 1010
+- Mobile First Logic (css defaults in Mobile)
+- Responsive starts from 280px (GalaxyFold format)
+- Responsive main min-widths: 576px, 768px, 992px, 1200px, 1400px
+ */
+
+/* Imports
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+/* Colors
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+:root {
+    --yello: rgba(245, 224, 28, 1); /* #F5E01C */
+    --lightGray: rgba(248, 248, 248, 1); /* #F8F8F8*/
+    --lightBlack: rgba(37, 37, 37, 1); /* #252525 */
+    --gray: rgba(148, 148, 148, 0.8); /* #949494 */
+}
+
+/* Elements
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #fff;
+    color: #000;
+    font-size: 1.6rem;
+    line-height: 1.265;
+    font-weight: 400;
+    font-family: 'Raleway', sans-serif;
+    hyphens: none;
+}
+
+main {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media (min-width: 1400px) {
+    main {
+        max-width: 1500px;
+    }
+}
+
+section {
+    width: 92%;
+    margin: 0 auto 12vh auto;
+}
+
+@media (min-width: 768px) {
+    section {
+        width: 90%;
+    }
+}
+
+@media (min-width: 992px) {
+    section {
+        width: 86%;
+    }
+}
+
+h2, h3, h4, h5, h6 {
+    font-weight: 500;
+}
+
+h1 {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 6rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+@media (min-width: 320px) {
+    h3 {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 992px) {
+    h1 {
+        font-size: 6rem;
+    }
+}
+
+p {
+    font-size: 1.7rem;
+    line-height: 1.6;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button, .button {
+    cursor: pointer;
+    border: 3px solid var(--yello);
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    background-color: transparent;
+}
+
+button:hover {
+    transform: translateY(-0.25em);
+}
+
+.button:hover {
+    box-shadow: inset 6em 0 0 0 var(--yello);
+}
+
+@media (min-width: 320px) {
+    button, .button {
+        padding: 8px 22px;
+    }
+}
+
+input {
+    background-color: rgba(220, 220, 220, 1); /* #DCDCDC*/
+}
+
+/* Repetitive Design
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.title__section {
+    margin: 0 auto 5vh auto;
+}
+
+.title__section > p {
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--gray);
+}
+
+@media (min-width: 992px) {
+    .title__section > p {
+        font-size: 30px;
+    }
+}
+
+.hide {
+    display: none;
+}
