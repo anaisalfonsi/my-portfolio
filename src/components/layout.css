@@ -1,6 +1,6 @@
 /*
 Theme Name: Anaïs Alfonsi Portfolio
-Author: Anaïs Alfonsi (https://fr.linkedin.com/in/anaisalfonsi007)
+Author: Anaïs Alfonsi
 Description: Anaïs Alfonsi Theme
 Version: 1.0
 */
@@ -30,10 +30,12 @@ Version: 1.0
 /* Colors
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 :root {
-    --yello: rgba(245, 224, 28, 1); /* #F5E01C */
-    --lightGray: rgba(248, 248, 248, 1); /* #F8F8F8*/
-    --lightBlack: rgba(37, 37, 37, 1); /* #252525 */
-    --gray: rgba(148, 148, 148, 0.8); /* #949494 */
+    --yellow: rgba(255,217,102,1); /* #ffd966 */
+    --blue: rgba(110,188,255,1); /* #6ebcff */
+    --red: rgba(152,0,40,1); /* #980028 */
+    --lightGray: rgba(232,232,233,1); /* #e8e8e9 */
+    --black: rgba(28,28,30,1); /* #1c1c1e */
+    --white: rgba(247,247,245,1);/* #F7F7F5 */
 }
 
 /* Elements
@@ -53,8 +55,8 @@ html {
 }
 
 body {
-    background-color: #fff;
-    color: #000;
+    background-color: var(--black);
+    color: var(--white);
     font-size: 1.6rem;
     line-height: 1.265;
     font-weight: 400;
@@ -65,12 +67,7 @@ body {
 main {
     width: 100%;
     margin: 0 auto;
-}
-
-@media (min-width: 1400px) {
-    main {
-        max-width: 1500px;
-    }
+    max-width: 1500px;
 }
 
 section {
@@ -100,12 +97,12 @@ h1 {
     font-size: 6rem;
 }
 
-h3 {
+h2, h3 {
     font-size: 3rem;
 }
 
 @media (min-width: 320px) {
-    h3 {
+    h2, h3 {
         font-size: 3rem;
     }
 }
