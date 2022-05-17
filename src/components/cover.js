@@ -6,7 +6,7 @@ const Cover = () => {
     <div className="cover">
       <div>
         <h1>Anaïs Alfonsi</h1>
-        {/* <ul>
+        <ul>
           <li>A</li>
           <li>N</li>
           <li>A</li>
@@ -20,7 +20,7 @@ const Cover = () => {
           <li>N</li>
           <li>S</li>
           <li>I</li>
-        </ul> */}
+        </ul>
       </div>
       <div>
         <div className="triangle__container">

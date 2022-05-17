@@ -12,14 +12,45 @@
     visibility: hidden;
 }
 
-.cover ul li {
+.cover > div:first-child > ul li {
     text-align: center;
     font-size: 4rem;
 }
 
+.cover > div:first-child > ul li:nth-child(5),
+.cover > div:first-child > ul li:nth-child(6),
+.cover > div:first-child > ul li:nth-child(7),
+.cover > div:first-child > ul li:nth-child(8),
+.cover > div:first-child > ul li:nth-child(9) {
+    color: var(--yellow);
+}
+
 .triangle {
-    background: url("../images/test4.png") center center no-repeat;
+    background: url("../images/test3b.png") center center no-repeat;
     background-size: contain;
-    width: 400px;
-    height: 400px;
+    width: 250px;
+    height: 300px;
+}
+
+@media (min-width: 360px) {
+    .triangle {
+    width: 300px;
+    }
+}
+
+@media (min-width: 768px) {
+    .cover {
+        position: relative;
+    }
+
+    .cover > div:first-child {
+        position: absolute;
+        top:0;
+        left: 10rem;
+    }
+
+    .triangle {
+        width: 400px;
+        height: 400px;
+    }
 }
