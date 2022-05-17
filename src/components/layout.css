@@ -156,6 +156,10 @@ input {
     background-color: rgba(220, 220, 220, 1); /* #DCDCDC*/
 }
 
+.logo {
+    width: 50px;
+}
+
 /* Repetitive Design
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .title__section {

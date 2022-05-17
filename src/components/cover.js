@@ -1,5 +1,6 @@
 import * as React from "react";
 import "./cover.css";
+import Logo from "../images/yellow-icon.png";
 
 const Cover = () => {
   return (
@@ -10,7 +11,9 @@ const Cover = () => {
           <li>A</li>
           <li>N</li>
           <li>A</li>
-          <li>Ï</li>
+          <li>
+            <img className="logo" src={ Logo } alt="logo" />
+          </li>
           <li>S</li>
           <li>-</li>
           <li>A</li>
