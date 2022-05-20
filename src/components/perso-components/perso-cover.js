@@ -1,8 +1,9 @@
 import * as React from "react";
-import "./cover.css";
-import Logo from "../images/yellow-logo.png";
+import "../cover.css";
+import "./perso-cover.css";
+import Logo from "../../images/yellow-logo.png";
 
-export default function Cover() {
+export default function PersoCover() {
   return (
     <div className="cover__section">
       <div className="cover">

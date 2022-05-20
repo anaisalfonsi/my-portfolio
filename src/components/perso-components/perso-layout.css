@@ -1,0 +1,28 @@
+/* Elements
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.perso__body {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.perso__body a {
+    color: var(--black);
+}
+
+.perso__body a:hover {
+    border-bottom: 1px solid var(--black);
+}
+
+.perso__body button, .perso__body .button {
+    border: 3px solid var(--yellow);
+    color: #000;
+}
+
+.perso__body button:hover {
+    transform: translateY(-0.25em);
+}
+
+.perso__body .button:hover {
+    box-shadow: inset 6em 0 0 0 var(--yellow);
+}
+

@@ -124,11 +124,18 @@ ul {
 
 a {
     text-decoration: none;
+    color: var(--white);
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    border-bottom: 1px solid var(--white);
 }
 
 button, .button {
     cursor: pointer;
-    border: 3px solid var(--yello);
+    border: 3px solid var(--yellow);
     color: #000;
     font-size: 20px;
     font-weight: 700;
@@ -143,7 +150,7 @@ button:hover {
 }
 
 .button:hover {
-    box-shadow: inset 6em 0 0 0 var(--yello);
+    box-shadow: inset 6em 0 0 0 var(--yellow);
 }
 
 @media (min-width: 320px) {
