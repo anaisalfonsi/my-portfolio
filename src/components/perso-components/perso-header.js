@@ -8,7 +8,7 @@ export default function PersoHeader() {
       <nav className="navbar">
         <div className="navbar__container">
           <div>
-            <Link to="/">Dev Mode</Link>
+            <Link to="/" className="btn-fx">Dev Mode</Link>
           </div>
           <ul>
             <li>

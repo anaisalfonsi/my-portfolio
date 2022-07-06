@@ -1,0 +1,83 @@
+header {
+    position: fixed;
+    background-color: var(--yellow);
+    top: 100px;
+    right: -250px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    padding-left: 8rem;
+    text-align: end;
+    z-index: 50;
+}
+
+.navbar__container > div:first-child {
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    max-width: 139px;
+    height: 44px;
+    float: right;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    transition: all 0.8s ease;
+}
+
+.navbar__container > div:first-child a {
+    display: inline-block;
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+}
+
+.navbar__container > div:first-child:hover a {
+    font-size: 14px;
+}
+
+.navbar__container > div:first-child:hover {
+    width: 88%;
+}
+
+.navbar__container > ul > li {
+    margin: 1rem 0;
+    padding-right: 1rem;
+}
+
+.navbar__container a {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--black);
+}
+
+.navbar__container a:hover {
+    border-bottom: 1px solid;
+}
+
+.dev__body .navbar__container > ul > li:nth-child(3) a {
+    margin-left: 2.5rem;
+}
+
+.open-close-nav {
+    position: relative;
+    cursor: pointer;
+}
+
+.open-close-nav i {
+    color: var(--black);
+    font-size: 30px;
+}
+
+.open-close-nav i:last-child {
+    position: absolute;
+    display: none;
+    top: -50%;
+    left: -20px;
+}

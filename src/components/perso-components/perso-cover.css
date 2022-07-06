@@ -1,5 +1,9 @@
 .perso__body .cover {
-    background-color: var(--blue);
+    background: linear-gradient(90deg, var(--red) 50%, var(--blue) 50%);
+}
+
+.perso__body .cover > div:first-child > ul li {
+    color: var(--white);
 }
 
 .perso__body .cover > div:first-child > ul li:nth-child(5),
@@ -7,7 +11,7 @@
 .perso__body .cover > div:first-child > ul li:nth-child(7),
 .perso__body .cover > div:first-child > ul li:nth-child(8),
 .perso__body .cover > div:first-child > ul li:nth-child(9) {
-    color: var(--red);
+    color: var(--yellow);
 }
 
 .perso__body .triangle {
