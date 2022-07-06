@@ -12,6 +12,10 @@
     visibility: hidden;
 }
 
+.cover > div > ul {
+    margin-top: 3rem;
+}
+
 .cover > div:first-child > ul li {
     text-align: center;
     font-size: 4rem;

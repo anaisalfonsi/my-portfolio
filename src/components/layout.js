@@ -9,10 +9,10 @@ import Footer from "./footer";
 
 export default function Layout({ children }) {
   return (
-    <>
+    <div className="dev__body">
       <Header />
         <main>{children}</main>
       <Footer />
-    </>
+    </div>
   );
 };
