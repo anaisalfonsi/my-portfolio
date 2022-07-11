@@ -2,10 +2,10 @@ import * as React from "react";
 import "./home.css";
 import Cover from "../../components/cover";
 
-export default function Home() {
+export default function Home( {openCloseNav}) {
   return (
     <>
-      <Cover />
+      <Cover openCloseNav={openCloseNav} />
       <section className="home__section">
         <div id="home" className="home">
           <h1>Home</h1>
