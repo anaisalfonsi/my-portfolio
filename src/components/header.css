@@ -1,11 +1,11 @@
 header {
     position: fixed;
-    background-color: var(--yellow);
-    top: 100px;
+    background-color: #7cc2ff;
+    top: 0;
     right: -250px;
     width: 500px;
-    height: 500px;
-    border-radius: 50%;
+    height: 100%;
+    /* border-radius: 50%; */
     display: flex;
     align-items: center;
     padding-left: 8rem;
@@ -21,7 +21,6 @@ header {
     height: 44px;
     float: right;
     margin-bottom: 1rem;
-    display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 2px;
@@ -70,14 +69,18 @@ header {
     cursor: pointer;
 }
 
-.open-close-nav i {
-    color: var(--black);
-    font-size: 30px;
+.open-close-nav .logo {
+    position: absolute;
+    /* color: var(--black);
+    font-size: 30px; */
 }
 
-.open-close-nav i:last-child {
-    position: absolute;
-    display: none;
-    top: -50%;
+.open-close-nav .logo {
+    top: 50px;
+    left: 20px;
+}
+
+.open-close-nav .fa-arrow-left-from-line {
+    top: -50px;
     left: -20px;
 }

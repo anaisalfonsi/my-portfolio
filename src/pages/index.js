@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import Layout from "../components/layout";
 
 import Home from "./sections/home";
@@ -7,10 +8,16 @@ import Work from "./sections/work";
 import Contact from "./sections/contact";
 
 const IndexPage = () => {
+  const [isShown, setIsShown] = useState(true);
+
+  const openCloseNav = () => {
+    setIsShown((current) => !current);
+  };
+  
   return (
     <>
-      <Layout>
-        <Home />
+      <Layout isShown={isShown}>
+        <Home openCloseNav={openCloseNav} />
         <About />
         <Work />
         <Contact />

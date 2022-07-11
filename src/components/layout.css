@@ -215,12 +215,24 @@ input {
     height: 100%;
 }
 
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.show-flex {
+    display: flex;
+}
+
+.show-inline {
+    display: inline;
+}
+
 @media (min-width: 992px) {
     .title__section > p {
         font-size: 30px;
     }
-}
-
-.hide {
-    display: none;
 }

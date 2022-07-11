@@ -7,10 +7,11 @@ import "./layout.css";
 import Header from "./header";
 import Footer from "./footer";
 
-export default function Layout({ children }) {
+export default function Layout({ children, isShown }) {
+
   return (
     <div className="dev__body">
-      <Header />
+      <Header isShown={isShown} />
         <main>{children}</main>
       <Footer />
     </div>

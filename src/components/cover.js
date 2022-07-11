@@ -2,7 +2,8 @@ import * as React from "react";
 import "./cover.css";
 import Logo from "../images/yellow-logo.png";
 
-export default function Cover() {
+export default function Cover({ openCloseNav }) {
+  
   return (
     <div className="cover__section">
       <div className="cover">
@@ -12,7 +13,7 @@ export default function Cover() {
             <li>A</li>
             <li>N</li>
             <li>A</li>
-            <li>
+            <li onClick={openCloseNav}>
               <img className="logo" src={Logo} alt="logo" />
             </li>
             <li>S</li>
