@@ -32,6 +32,9 @@ Version: 1.0
     --lightGray: rgba(232,232,233,1); /* #e8e8e9 */
     --black: rgba(28,28,30,1); /* #1c1c1e */
     --white: rgba(247,247,245,1);/* #F7F7F5 */
+
+    --fontWork: 'Work Sans', sans-serif;
+    --fontRaleway: 'Raleway', sans-serif;
 }
 
 /* Elements

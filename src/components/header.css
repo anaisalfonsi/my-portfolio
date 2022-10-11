@@ -1,16 +1,23 @@
 header {
     position: fixed;
-    background-color: #7cc2ff;
     top: 0;
     right: -250px;
     width: 500px;
     height: 100%;
-    /* border-radius: 50%; */
     display: flex;
     align-items: center;
     padding-left: 8rem;
     text-align: end;
     z-index: 50;
+}
+
+header::after {
+    content: "";
+    width: 0.5px;
+    height: 90%;
+    background: linear-gradient(0deg, var(--white) 70%, var(--blue)25%, var(--white));
+    position: absolute;
+    left: 4rem;
 }
 
 .navbar__container > div:first-child {
@@ -20,7 +27,7 @@ header {
     max-width: 139px;
     height: 44px;
     float: right;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     align-items: center;
     justify-content: center;
     border-radius: 2px;
@@ -30,7 +37,7 @@ header {
 .navbar__container > div:first-child a {
     display: inline-block;
     background-color: var(--black);
-    color: var(--white);
+    color: var(--blue);
     font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
@@ -46,14 +53,14 @@ header {
 }
 
 .navbar__container > ul > li {
-    margin: 1rem 0;
+    margin: 3rem 0;
     padding-right: 1rem;
 }
 
 .navbar__container a {
     font-size: 19px;
     font-weight: 700;
-    color: var(--black);
+    font-family: var(--fontWork);
 }
 
 .navbar__container a:hover {
@@ -62,25 +69,4 @@ header {
 
 .dev__body .navbar__container > ul > li:nth-child(3) a {
     margin-left: 2.5rem;
-}
-
-.open-close-nav {
-    position: relative;
-    cursor: pointer;
-}
-
-.open-close-nav .logo {
-    position: absolute;
-    /* color: var(--black);
-    font-size: 30px; */
-}
-
-.open-close-nav .logo {
-    top: 50px;
-    left: 20px;
-}
-
-.open-close-nav .fa-arrow-left-from-line {
-    top: -50px;
-    left: -20px;
 }
