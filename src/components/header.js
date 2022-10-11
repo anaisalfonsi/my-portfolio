@@ -2,26 +2,10 @@ import * as React from "react";
 import "./header.css";
 import { Link } from "gatsby";
 import { useLocation } from "@reach/router";
-import Logo from "../images/yellow-logo.png";
 
 export default function Header({ isShown }) {
 
   const location = useLocation();
-
-  /* const openCloseNav = () => {
-
-    const navBtn = header.querySelector(".navbar__container > div:first-child");
-    const navMenu = header.querySelector(".navbar__container > ul");
-
-    if (openNav.style.display === "inline") {
-      navBtn.style.display = "flex";
-      navMenu.style.display = "block";
-    } else {
-      navBtn.style.display = "none";
-      navMenu.style.display = "none";
-    }
- 
-  } */
   
   return (
     <header style={{ right: isShown ? "-250px" : "-500px" }}>
@@ -56,13 +40,6 @@ export default function Header({ isShown }) {
               <a href="#contact">Contact</a>
             </li>
           </ul>
-          {/* <div onClick={openCloseNav} className="open-close-nav">
-            {isShown ? (
-              <i className="fa-regular fa-arrow-left-from-line"></i>
-            ) : (
-              <img className="logo" src={Logo} alt="logo" />
-            )}
-          </div> */}
         </div>
       </nav>
     </header>
