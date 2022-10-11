@@ -3,7 +3,7 @@ import "./header.css";
 import { Link } from "gatsby";
 import { useLocation } from "@reach/router";
 
-export default function Header({ isShown }) {
+export default function Header({ isShown, openCloseNav }) {
 
   const location = useLocation();
   
@@ -37,7 +37,13 @@ export default function Header({ isShown }) {
               )}
             </li>
             <li>
+              <a href="#test-my-api">Test My API</a>
+            </li>
+            <li>
               <a href="#contact">Contact</a>
+            </li>
+            <li>
+              <button onClick={openCloseNav}>Close</button>
             </li>
           </ul>
         </div>

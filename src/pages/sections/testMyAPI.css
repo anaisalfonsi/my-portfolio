@@ -1,0 +1,17 @@
+.testApi h2 {
+    font-size: 18px;
+}
+
+.testApi li {
+    cursor: pointer;
+}
+
+.testApi-grid {
+    display: grid;
+}
+
+@media (min-width: 992px) {
+    .testApi h2 {
+        font-size: 21px;
+    }
+}
