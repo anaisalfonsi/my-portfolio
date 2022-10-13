@@ -1,3 +1,4 @@
 .footer__container {
-    border-top: 4px solid var(--yellow);
+    border-top: 2px solid var(--yellow);
+    padding: 8rem;
 }
