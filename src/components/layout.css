@@ -73,15 +73,15 @@ main {
 section {
     width: 100vw;
     height: 100vh;
+    padding: 4rem 8rem;
 }
 
 section:nth-child(even):not(:first-child) {
     background-color: var(--lightGray);
 }
 
-section > div:first-child {
-    width: 92%;
-    margin: 0 auto 12vh auto;
+section:nth-child(even):not(:first-child) h1 {
+    color: var(--black);
 }
 
 .simple-container {
@@ -90,15 +90,9 @@ section > div:first-child {
     margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-    section {
-        width: 90%;
-    }
-}
-
-@media (min-width: 992px) {
-    section {
-        width: 86%;
+@media (min-width: 1200px) {
+    .simple-container {
+        max-width: 1080px;
     }
 }
 
@@ -110,6 +104,7 @@ h1 {
     font-family: 'Work Sans', sans-serif;
     font-weight: 700;
     font-size: 6rem;
+    color: var(--lightGray);
 }
 
 h2, h3 {
@@ -283,6 +278,12 @@ label {
         flex-direction: row;
         align-items: start;
         justify-content: center;
+    }
+
+    .mobile-desktop__flex > div, .mobile-desktop__flex > li {
+        width: 100%;
+        padding: 0 15px;
+        min-height: 200px;
     }
 
     .default__margin-top {

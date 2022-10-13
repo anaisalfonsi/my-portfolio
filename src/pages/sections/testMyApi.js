@@ -1,22 +1,26 @@
 import * as React from "react";
 import "./testMyAPI.css";
 
-export default function TestMyAPI({ showUserForm }) {
+export default function TestMyAPI({ openCloseModal }) {
 
   const apiTests = [
     {
-      title: "Se créer un compte utlisateur",
+      title: "Create an account",
       imgPath: "/",
+      icon: "fa-light fa-user",
     },
     {
-      title: "Ajouter une galerie photos",
+      title: "Make an image gallery",
       imgPath: "/",
+      icon: "fa-light fa-image",
     },
     {
-      title: "Commenter avec éditeur de texte",
+      title: "Post an article",
       imgPath: "/",
+      icon: "fa-light fa-pen-nib",
     },
   ];
+
   return (
     <section className="testApi__section">
       <div id="test-my-api" className="testApi">
@@ -25,10 +29,16 @@ export default function TestMyAPI({ showUserForm }) {
           <ul className="mobile-desktop__flex">
             {apiTests.map((test, index) => {
               return (
-                <li key={index} onClick={showUserForm}>
+                <li
+                  key={index}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    openCloseModal(index);
+                  }}
+                >
                   <h2>{test.title}</h2>
-                  <div>
-                    <img src={test.imgPath} alt="test-my-api" />
+                  <div className="icon-div">
+                    <i className={test.icon}></i>
                   </div>
                 </li>
               );

@@ -1,9 +1,41 @@
 .testApi h2 {
     font-size: 18px;
+    height: 53px;
+    margin-top: 1rem;
 }
 
 .testApi li {
     cursor: pointer;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(110,188,255,0.8);
+    color: var(--black);
+    border: 15px inset var(--blue);
+    transition: 0.5s ease;
+}
+
+.testApi li:first-child {
+    margin-right: 20px;
+}
+
+.testApi li:nth-child(2) {
+    border: 15px outset var(--blue);
+}
+
+.testApi li:last-child {
+    margin-left: 20px;
+}
+
+.testApi li:hover {
+    transform: scale(1.02);
+}
+
+.testApi .icon-div i {
+    font-size: 30px;
+    color: var(--black);
 }
 
 .testApi-grid {
