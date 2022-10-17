@@ -5,7 +5,7 @@ import UserForms from "./forms/user-forms";
 import GalleryForm from "./forms/gallery-form";
 import PostForm from "./forms/post-form";
 
-export default function Modal({ onCloseRequest, userForm, galleryForm, postForm }) {
+export default function Modal({ getUser, onCloseRequest, userForm, galleryForm, postForm }) {
 
   const ref = useRef(null);
 
@@ -37,7 +37,7 @@ export default function Modal({ onCloseRequest, userForm, galleryForm, postForm 
         <div className="modal-close-btn">
           <button onClick={(e) => onCloseRequest(e)}>X Close</button>
         </div>
-        {userForm && <UserForms />}
+        {userForm && <UserForms getUser={getUser} />}
         {galleryForm && <GalleryForm />}
         {postForm && <PostForm />}
       </div>
