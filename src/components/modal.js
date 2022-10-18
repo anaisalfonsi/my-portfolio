@@ -1,9 +1,9 @@
 import * as React from "react";
 import { useState, useEffect, useRef } from "react";
-import "./modal.css";
 import UserForms from "./forms/user-forms";
 import GalleryForm from "./forms/gallery-form";
 import PostForm from "./forms/post-form";
+import "./modal.css";
 
 export default function Modal({ getUser, onCloseRequest, userForm, galleryForm, postForm }) {
 
@@ -30,6 +30,15 @@ export default function Modal({ getUser, onCloseRequest, userForm, galleryForm, 
     };
   }, []);
 
+  const headers = {
+    Accept: "application/json",
+    "Content-Type": "application/json;charset=UTF-8",
+  };
+
+  const unknownError = (statusCode) => {
+    return `HTTP error! status: ${statusCode}`;
+  };
+
  
   return (
     <div className="modal__section">
@@ -37,8 +46,16 @@ export default function Modal({ getUser, onCloseRequest, userForm, galleryForm, 
         <div className="modal-close-btn">
           <button onClick={(e) => onCloseRequest(e)}>X Close</button>
         </div>
-        {userForm && <UserForms getUser={getUser} />}
-        {galleryForm && <GalleryForm />}
+        {userForm && (
+          <UserForms
+            headers={headers}
+            unknownError={unknownError}
+            getUser={getUser}
+          />
+        )}
+        {galleryForm && (
+          <GalleryForm headers={headers} unknownError={unknownError} />
+        )}
         {postForm && <PostForm />}
       </div>
     </div>

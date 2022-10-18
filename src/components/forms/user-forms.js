@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import "../modal.css";
 
-export default function UserForms({ getUser }) {
+export default function UserForms({ headers, unknownError, getUser }) {
     
     const [message, setMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
@@ -25,14 +25,7 @@ export default function UserForms({ getUser }) {
       return () => clearInterval(clearMessage);
     });
     
-    const headers = {
-      Accept: "application/json",
-      "Content-Type": "application/json;charset=UTF-8",
-    };
-
-    const unknownError = (statusCode) => {
-      return `HTTP error! status: ${statusCode}`;
-    }
+    
     
     const registerSubmit = async (e) => {
       e.preventDefault();

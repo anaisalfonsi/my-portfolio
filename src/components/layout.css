@@ -128,7 +128,7 @@ p {
     line-height: 1.6;
 }
 
-ul {
+ul, li {
     list-style: none;
 }
 
