@@ -25,8 +25,6 @@ export default function UserForms({ headers, unknownError, getUser }) {
       return () => clearInterval(clearMessage);
     });
     
-    
-    
     const registerSubmit = async (e) => {
       e.preventDefault();
       try {
