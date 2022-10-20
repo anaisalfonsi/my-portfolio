@@ -14,22 +14,14 @@ const IndexPage = () => {
   const getUser = (user) => {
     setUser(user);
   };
-    /* useEffect(() => {
-      const fetchUser = async () => {
-        await fetch("http://localhost:8000/api/logged")
-          .then((res) => res.json())
-          .then((data) => console.log(data), (error) => console.log(error));
-      };
-
-      fetchUser();
-    }, []); */
-    useEffect(() => {
-      const loggedInUser = localStorage.getItem("user");
-      if (loggedInUser) {
-        const foundUser = JSON.parse(loggedInUser);
-        setUser(foundUser);
-      }
-    }, []);
+    
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setUser(foundUser);
+    }
+  }, []);
 
   const [isShown, setIsShown] = useState(true);
   const [showModal, setShowModal] = useState(false);
