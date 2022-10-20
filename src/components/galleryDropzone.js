@@ -76,7 +76,7 @@ export default function GalleryDropzone({ onDrop, files, unknownError }) {
 
   return (
     <>
-      {message && <p>{message}</p>}
+      {message && <p className="blue-text">{message}</p>}
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       {logged && (
         <div>

@@ -202,6 +202,10 @@ label {
     color: var(--yellow);
 }
 
+.blue-text {
+    color: var(--blue);
+}
+
 .error-message {
     color: red;
     font-size: 18px;

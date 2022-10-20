@@ -1,11 +1,11 @@
 import * as React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import UserForms from "./forms/user-forms";
 import GalleryForm from "./forms/gallery-form";
-import PostForm from "./forms/post-form";
+import SearchForm from "./forms/search-form";
 import "./modal.css";
 
-export default function Modal({ getUser, onCloseRequest, userForm, galleryForm, postForm }) {
+export default function Modal({ getUser, onCloseRequest, userForm, galleryForm, searchForm }) {
 
   const ref = useRef(null);
 
@@ -56,7 +56,7 @@ export default function Modal({ getUser, onCloseRequest, userForm, galleryForm, 
         {galleryForm && (
           <GalleryForm headers={headers} unknownError={unknownError} />
         )}
-        {postForm && <PostForm />}
+        {searchForm && <SearchForm />}
       </div>
     </div>
   );

@@ -36,7 +36,7 @@ const IndexPage = () => {
 
   const [userForm, setUserForm] = useState(false);
   const [galleryForm, setGalleryForm] = useState(false);
-  const [postForm, setPostForm] = useState(false);
+  const [searchForm, setSearchForm] = useState(false);
 
   const openCloseNav = (e) => {
     e.preventDefault();
@@ -48,7 +48,7 @@ const IndexPage = () => {
     setShowModal((current) => !current);
     setUserForm(false);
     setGalleryForm(false);
-    setPostForm(false);
+    setSearchForm(false);
   };
 
   const openCloseModal = (index) => {
@@ -63,7 +63,7 @@ const IndexPage = () => {
     }
 
     if (index === 2) {
-      setPostForm((current) => !current);
+      setSearchForm((current) => !current);
     }
   };
 
@@ -81,7 +81,7 @@ const IndexPage = () => {
             onCloseRequest={onCloseRequest}
             userForm={userForm}
             galleryForm={galleryForm}
-            postForm={postForm}
+            searchForm={searchForm}
           />
         )}
         <Home openCloseNav={openCloseNav} />
