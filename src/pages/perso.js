@@ -5,7 +5,7 @@ import PersoHome from "./sections/perso-sections/perso-home";
 import PersoAbout from "./sections/perso-sections/perso-about";
 import PersoPassions from "./sections/perso-sections/perso-passions";
 import PersoContact from "./sections/perso-sections/perso-contact";
-import "../components/import.css";
+import "../components/imports.css";
 
 const PersoIndex = () => {
   return (

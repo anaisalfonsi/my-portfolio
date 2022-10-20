@@ -23,7 +23,7 @@
 
 .cover > div:first-child > ul li {
     text-align: center;
-    font-size: 4rem;
+    font-size: 2.5rem;
 }
 
 .cover > div:first-child > ul li:nth-child(5),
@@ -83,5 +83,11 @@
     .triangle {
         width: 400px;
         height: 400px;
+    }
+}
+
+@media (min-width: 768px) and (min-height: 600px) {
+    .cover > div:first-child > ul li {
+        font-size: 4rem;
     }
 }

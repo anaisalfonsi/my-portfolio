@@ -1,3 +1,7 @@
+.testApi__section {
+    padding: 4rem 2rem;
+}
+
 .testApi h2 {
     font-size: 18px;
     height: 53px;
@@ -6,10 +10,14 @@
 
 .testApi li {
     cursor: pointer;
+    width: 100%;
+    max-width: 300px;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
     text-align: center;
     background-color: rgba(110,188,255,0.8);
     color: var(--black);
@@ -17,16 +25,8 @@
     transition: 0.5s ease;
 }
 
-.testApi li:first-child {
-    margin-right: 20px;
-}
-
 .testApi li:nth-child(2) {
     border: 15px outset var(--blue);
-}
-
-.testApi li:last-child {
-    margin-left: 20px;
 }
 
 .testApi li:hover {
@@ -38,12 +38,21 @@
     color: var(--black);
 }
 
-.testApi-grid {
-    display: grid;
-}
 
 @media (min-width: 992px) {
+    .testApi__section {
+        padding: 4rem 8rem;
+    }
+
     .testApi h2 {
         font-size: 21px;
+    }
+
+    .testApi li:first-child {
+        margin-right: 3rem;
+    }
+
+    .testApi li:last-child {
+        margin-left: 3rem;
     }
 }

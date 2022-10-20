@@ -1,13 +1,11 @@
 import * as React from "react";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import UserForms from "./forms/user-forms";
 import GalleryForm from "./forms/gallery-form";
 import SearchForm from "./forms/search-form";
 import "./modal.css";
 
-export default function Modal({ getUser, onCloseRequest, userForm, galleryForm, searchForm }) {
-
-  const ref = useRef(null);
+export default function Modal({ getUser, onCloseRequest, userForm, galleryForm, searchForm, handleGalleryClick, galleryClick }) {
 
   useEffect(() => {
     /* const handleOutsideClick = (e) => {
@@ -39,24 +37,30 @@ export default function Modal({ getUser, onCloseRequest, userForm, galleryForm, 
     return `HTTP error! status: ${statusCode}`;
   };
 
- 
   return (
-    <div className="modal__section">
-      <div ref={ref} className="modal">
-        <div className="modal-close-btn">
-          <button onClick={(e) => onCloseRequest(e)}>X Close</button>
-        </div>
-        {userForm && (
-          <UserForms
-            headers={headers}
-            unknownError={unknownError}
-            getUser={getUser}
-          />
-        )}
-        {galleryForm && (
-          <GalleryForm headers={headers} unknownError={unknownError} />
-        )}
-        {searchForm && <SearchForm />}
+    <div className={`modal__section ${galleryClick ? "active" : ""}`}>
+      <div className="modal">
+          <div className="modal-close-btn">
+            <button
+              onClick={(e) => {
+                onCloseRequest(e);
+                handleGalleryClick(false);
+              }}
+            >
+              X Close
+            </button>
+          </div>
+          {userForm && (
+            <UserForms
+              headers={headers}
+              unknownError={unknownError}
+              getUser={getUser}
+            />
+          )}
+          {galleryForm && (
+            <GalleryForm headers={headers} unknownError={unknownError} />
+          )}
+          {searchForm && <SearchForm />}
       </div>
     </div>
   );

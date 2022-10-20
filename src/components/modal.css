@@ -1,5 +1,5 @@
 .modal__section {
-    position: absolute;
+    position: fixed;
     background-color: var(--black);
     width: 100%;
     height: 100%;
@@ -9,6 +9,13 @@
     z-index: 90;
 }
 
+.modal__section.active {
+    position: sticky;
+    top: 0;
+    padding-top: 2rem;
+    min-height: 100%;
+}
+
 .modal__section h1 {
     font-size: 35px;
     font-weight: 400;
@@ -16,6 +23,12 @@
 
 .modal__section .modal {
     position: relative;
+    width: 90%;
+    max-width: 1080px;
+}
+
+.modal__section.active .modal {
+    min-height: 100vh;
 }
 
 .modal__section .modal-close-btn {
@@ -35,16 +48,111 @@
     color: rgba(255,217,102,0.8);
 }
 
+@media (min-width: 400px) {
+    .modal__section.active {
+        padding-top: 4rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .modal__section.active {
+        padding-top: 8rem;
+    }
+}
+
 /* Images Gallery
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.gallery__container {
+    margin-top: 2rem;
+}
+
+.drop-here__container > div  {
+    margin: 1rem 0 2rem 0;
+    border: 2px dashed var(--lightGray);
+    padding: 2rem;
+}
+
+.images-grid.active {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-rows: repeat(5, 200px);
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-flow: row dense;
+}
+
+.images-grid > li:nth-child(3n) {
+    grid-area: span 1/span 2;
+}
+
+.images-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .drop-select {
     cursor: pointer;
     font-weight: 700;
     color: var(--yellow);
 }
 
+@media (min-width: 1200px) {
+    .gallery__container {
+        margin-top: 0;
+    }
+}
+
 /* Search Tarot Cards
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.search-forms {
+    margin-top: 3rem;
+}
+
+.search-forms > div {
+    width: 100%;
+    text-align: center;
+}
+
 .tarot-card img {
-    max-width: 400px;
+    max-width: 200px;
+}
+
+.search-forms li {
+    width: 300px;
+    margin: 0 auto 2rem auto;
+    padding: 3rem 1rem;
+    border: 1px solid var(--lightGray);
+}
+
+.search-language {
+    margin: 2rem 0;
+}
+
+.search-language li:nth-child(odd) {
+    color: var(--blue);
+}
+
+.search-card-results > li > p:nth-child(2) {
+    font-size: smaller;
+}
+
+.search-card-results > li > p:nth-child(3) {
+    font-size: 14px;
+}
+
+@media (min-width: 992px) {
+    .search-language {
+        margin: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .search-forms > div {
+        text-align: left;
+    }
+
+    .search-forms input,
+    .search-forms select {
+        max-width: 400px;
+    }
 }

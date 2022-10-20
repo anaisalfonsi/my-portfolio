@@ -75,7 +75,7 @@ export default function SearchForm() {
   };
 
   const searchUsersByLanguage = async (language) => {
-    console.log(language);
+  
     if (language) {
       try {
         const res = await fetch(`http://localhost:8000/api/users?languages=${language}`, {
@@ -101,55 +101,63 @@ export default function SearchForm() {
 
   return (
     <>
-      <h2>Search a Tarot Card</h2>
-      <input
-        type="text"
-        value={value}
-        onChange={({ target: { value } }) => {
-          handleChange(value);
-          searchCards(value);
-        }}
-        onKeyDown={({ key }) => {
-          handleKeyEvent(key);
-        }}
-      />
-      <ul>
-        {filteredCards
-          ? filteredCards.map((card) => (
-              <li className="tarot-card" key={card.id}>
-                <p>{card.name}</p>
-                <p>Number {card.number}</p>
-                <p>{card.description}</p>
-                <img
-                  src={`http://localhost:8000/uploads/tarot_images/${card.filePath}`}
-                  alt={card.name + " image"}
-                />
-              </li>
-            ))
-          : null}
-      </ul>
+      <div className="mobile-desktop__flex search-forms">
+        <div className="search-card">
+          <h2 className="mb-2">Search a Tarot Card</h2>
+          <input
+            type="text"
+            value={value}
+            onChange={({ target: { value } }) => {
+              handleChange(value);
+              searchCards(value);
+            }}
+            onKeyDown={({ key }) => {
+              handleKeyEvent(key);
+            }}
+          />
+          <ul className="search-card-results mt-2 mb-2">
+            {filteredCards
+              ? filteredCards.map((card) => (
+                  <li className="tarot-card" key={card.id}>
+                    <p className="yellow-text">{card.name}</p>
+                    <p>Number {card.number}</p>
+                    <p className="mb-1">{card.description}</p>
+                    <img
+                      src={`http://localhost:8000/uploads/tarot_images/${card.filePath}`}
+                      alt={card.name + " image"}
+                    />
+                  </li>
+                ))
+              : null}
+          </ul>
+        </div>
 
-      <h2>Search Users by language</h2>
-      <select
-        onChange={({ target: { value } }) => {
-          handleChangeSelect(value);
-          searchUsersByLanguage(value);
-        }}
-        value={selectValue}
-      >
-        {allLanguages &&
-          allLanguages.map((lang) => (
-            <option key={lang.language} value={lang.id}>
-              {lang.language}
-            </option>
-          ))}
-      </select>
-      <ul>
-        {console.log(usersByLanguage)}
-        {usersByLanguage &&
-          usersByLanguage.map((user) => <li key={user.id}>{user.pseudo}</li>)
-          }
-      </ul>
+        <div className="search-language">
+          <h2 className="mb-2">Search Users by language</h2>
+          <select
+            onChange={({ target: { value } }) => {
+              handleChangeSelect(value);
+              searchUsersByLanguage(value);
+            }}
+            value={selectValue}
+          >
+            {allLanguages &&
+              allLanguages.map((lang) => (
+                <option key={lang.language} value={lang.id}>
+                  {lang.language}
+                </option>
+              ))}
+          </select>
+          <ul>
+            {usersByLanguage &&
+              usersByLanguage.map((user) => (
+                <li key={user.id}>
+                  <p>{user.pseudo}</p>
+                </li>
+              ))}
+          </ul>
+        </div>
+      </div>
     </>
   );
 }
