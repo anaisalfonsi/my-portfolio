@@ -15,9 +15,9 @@ export default function TestMyAPI({ openCloseModal }) {
       icon: "fa-light fa-image",
     },
     {
-      title: "Post an article",
+      title: "Search the API",
       imgPath: "/",
-      icon: "fa-light fa-pen-nib",
+      icon: "fa-light fa-magnifying-glass",
     },
   ];
 

@@ -1,11 +1,11 @@
 import * as React from "react";
-import { useState, useEffect, useRef } from "react";
-import "./modal.css";
+import { useEffect, useRef } from "react";
 import UserForms from "./forms/user-forms";
 import GalleryForm from "./forms/gallery-form";
-import PostForm from "./forms/post-form";
+import SearchForm from "./forms/search-form";
+import "./modal.css";
 
-export default function Modal({ onCloseRequest, userForm, galleryForm, postForm }) {
+export default function Modal({ getUser, onCloseRequest, userForm, galleryForm, searchForm }) {
 
   const ref = useRef(null);
 
@@ -30,6 +30,15 @@ export default function Modal({ onCloseRequest, userForm, galleryForm, postForm 
     };
   }, []);
 
+  const headers = {
+    Accept: "application/json",
+    "Content-Type": "application/json;charset=UTF-8",
+  };
+
+  const unknownError = (statusCode) => {
+    return `HTTP error! status: ${statusCode}`;
+  };
+
  
   return (
     <div className="modal__section">
@@ -37,9 +46,17 @@ export default function Modal({ onCloseRequest, userForm, galleryForm, postForm 
         <div className="modal-close-btn">
           <button onClick={(e) => onCloseRequest(e)}>X Close</button>
         </div>
-        {userForm && <UserForms />}
-        {galleryForm && <GalleryForm />}
-        {postForm && <PostForm />}
+        {userForm && (
+          <UserForms
+            headers={headers}
+            unknownError={unknownError}
+            getUser={getUser}
+          />
+        )}
+        {galleryForm && (
+          <GalleryForm headers={headers} unknownError={unknownError} />
+        )}
+        {searchForm && <SearchForm />}
       </div>
     </div>
   );

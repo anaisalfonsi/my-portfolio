@@ -2,8 +2,8 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import "../modal.css";
 
-export default function UserForms() {
-
+export default function UserForms({ headers, unknownError, getUser }) {
+    
     const [message, setMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 
@@ -13,20 +13,17 @@ export default function UserForms() {
 
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
+    const [userPseudo, setUserPseudo] = useState("");
 
     const [showLogin, setShowLogin] = useState(false);
 
     useEffect(() => {
       const clearMessage = setInterval(() => {
         setMessage("");
+        setErrorMessage("");
       }, 5000);
       return () => clearInterval(clearMessage);
-    }, []);
-    
-    const headers = {
-      Accept: "application/json",
-      "Content-Type": "application/json;charset=UTF-8",
-    };
+    });
     
     const registerSubmit = async (e) => {
       e.preventDefault();
@@ -41,51 +38,71 @@ export default function UserForms() {
           }),
         });
 
+        if (!res.ok) {
+          console.log(unknownError(res.status));
+          throw new Error("Failed to create account");
+        }
+
         if (res.status === 201 || res.status === 200) {
           setPseudo("");
           setEmail("");
           setPassword("");
           setMessage("Your account has been created");
-        } else {
-          setErrorMessage("Failed to create the account");
-          setInterval(() => {
-            setErrorMessage("");
-          }, 5000);
         }
       } catch (err) {
-        console.log(err);
+        setErrorMessage(err.message);
       }
     };
 
     const loginSubmit = async (e) => {
       e.preventDefault();
-      try {
-        const res = await fetch("http://localhost:8000/api/login", {
-          method: "POST",
-          headers: headers,
-          body: JSON.stringify({
-            email: loginEmail,
-            password: loginPassword,
-          }),
-          credentials: "include",
-        });
+      if (loginEmail.trim() === "" || loginPassword.trim() === "") {
+        setErrorMessage("Email and/or Password can not be empty");
+      } else {
+        try {
+          const res = await fetch("http://localhost:8000/api/login", {
+            method: "POST",
+            headers: headers,
+            body: JSON.stringify({
+              email: loginEmail,
+              password: loginPassword,
+            }),
+            credentials: "include",
+          });
 
-        if (res.status === 204) {
-          setLoginEmail("");
-          setLoginPassword("");
-          setMessage("You are logged in");
-        } else {
-          setErrorMessage("Failed to log in");
-          setInterval(() => {
-            setErrorMessage("");
-          }, 5000);
+          if (!res.ok) {
+            if (res.status === 401) {
+              console.log(unknownError(res.status));
+              throw new Error(
+                "Invalid credentials. Please check your password and/or email."
+              );
+            }
+            console.log(unknownError(res.status));
+            throw new Error("Failed to log in");
+          }
+
+          const userData = await res.json();
+
+          if (res.status === 200) {
+            setUserPseudo(userData.pseudo);
+            const user = {
+              id: userData.id,
+              pseudo: userData.pseudo,
+              images: userData.images,
+            };
+            getUser(user);
+            localStorage.setItem("user", JSON.stringify(user));
+            setLoginEmail("");
+            setLoginPassword("");
+            setMessage(`You are logged in ${userPseudo}`);
+          }
+        } catch (err) {
+          setErrorMessage(err.message);
         }
-      } catch (err) {
-        console.log(err);
       }
     };
 
-    const logout = async (e) => {
+    const logoutSubmit = async (e) => {
       e.preventDefault();
       try {
         const res = await fetch("http://localhost:8000/api/logout", {
@@ -94,16 +111,20 @@ export default function UserForms() {
           credentials: "include",
         });
 
-        if (res.status === 204) {
-          setMessage("You are logged out");
-        } else {
-          setErrorMessage("Failed to log out");
-          setInterval(() => {
-            setErrorMessage("");
-          }, 5000);
+        if (!res.ok) {
+          console.log(unknownError(res.status));
+          throw new Error("Failed to log out");
         }
+
+        if (res.status === 204) {
+          getUser(null);
+          setMessage(`Goodbye ${userPseudo}!`);
+          setUserPseudo("");
+          localStorage.clear();
+        }
+
       } catch (err) {
-        console.log(err);
+        setErrorMessage(err.message);
       }
     }
 
@@ -113,7 +134,7 @@ export default function UserForms() {
 
   return (
     <>
-      <form onSubmit={logout}>
+      <form onSubmit={logoutSubmit}>
         <button>Logout</button>
       </form>
       {!showLogin && (
