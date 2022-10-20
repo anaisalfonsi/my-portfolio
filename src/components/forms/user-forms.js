@@ -117,10 +117,13 @@ export default function UserForms({ headers, unknownError, getUser }) {
         }
 
         if (res.status === 204) {
-          getUser(null);
           setMessage(`Goodbye ${userPseudo}!`);
-          setUserPseudo("");
-          localStorage.clear();
+          const clearUser = setInterval(() => {
+            getUser(null);
+            setUserPseudo("");
+            localStorage.clear();
+          }, 5000);
+          return () => clearInterval(clearUser);
         }
 
       } catch (err) {
@@ -134,25 +137,25 @@ export default function UserForms({ headers, unknownError, getUser }) {
 
   return (
     <>
-      <form onSubmit={logoutSubmit}>
-        <button>Logout</button>
-      </form>
+      <div className="mb-1">
+        <button onClick={logoutSubmit}>Logout</button>
+      </div>
       {!showLogin && (
         <div className="register-form">
+          {message && (
+            <div>
+              <h4 className="blue-text">{message}</h4>
+            </div>
+          )}
+          {errorMessage && (
+            <div>
+              <h4 className="error-message">{errorMessage}</h4>
+            </div>
+          )}
           <form onSubmit={registerSubmit}>
             <div>
               <h1>Create your account</h1>
             </div>
-            {message && (
-              <div>
-                <h4>{message}</h4>
-              </div>
-            )}
-            {errorMessage && (
-              <div>
-                <h4 className="error-message">{errorMessage}</h4>
-              </div>
-            )}
             <label htmlFor="email">Choose a Pseudonym</label>
             <input
               type="text"
@@ -186,8 +189,8 @@ export default function UserForms({ headers, unknownError, getUser }) {
             <div>
               <button>Create my account!</button>
             </div>
-            <div>
-              <button onClick={showHideForm} className="notice-message">
+            <div className="mt-2">
+              <button onClick={showHideForm} className="yellow-text">
                 I already have an account
               </button>
             </div>
@@ -196,12 +199,9 @@ export default function UserForms({ headers, unknownError, getUser }) {
       )}
       {showLogin && (
         <div className="login-form">
-          <div>
-            <h1>Sign In</h1>
-          </div>
           {message && (
             <div>
-              <h4>{message}</h4>
+              <h4 className="blue-text">{message}</h4>
             </div>
           )}
           {errorMessage && (
@@ -210,6 +210,9 @@ export default function UserForms({ headers, unknownError, getUser }) {
             </div>
           )}
           <form onSubmit={loginSubmit}>
+            <div>
+              <h1>Sign In</h1>
+            </div>
             <label htmlFor="login-email">Enter Your Email Address</label>
             <input
               type="email"
@@ -229,16 +232,15 @@ export default function UserForms({ headers, unknownError, getUser }) {
               value={loginPassword}
               onChange={(e) => setLoginPassword(e.target.value)}
             />
-
             <div>
               <button>Sign In</button>
             </div>
+            <div className="mt-2">
+              <button onClick={showHideForm} className="yellow-text">
+                Create an account
+              </button>
+            </div>
           </form>
-          <div>
-            <button onClick={showHideForm} className="notice-message">
-              Create an account
-            </button>
-          </div>
         </div>
       )}
     </>

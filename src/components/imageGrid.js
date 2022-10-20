@@ -1,17 +1,18 @@
 import * as React from "react";
-import "./imageGrid.css";
+import "./modal.css";
 
 export default function ImageGrid({ images }) {
   return (
     <>
-      <div>
-        <ul className="images-grid">
-            {images.map((image, index) => {
-                return (<li key={index}>
-                    <img src={image.src} alt="" />
-                </li>)
-                })
-            }
+      <div className="default__margin-top">
+        <ul className={`images-grid ${images ? "active" : ""}`}>
+          {images.map((image, index) => {
+            return (
+              <li key={index}>
+                <img src={image.src} alt="" />
+              </li>
+            );
+          })}
         </ul>
       </div>
     </>

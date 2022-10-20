@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./testMyAPI.css";
 
-export default function TestMyAPI({ openCloseModal }) {
+export default function TestMyAPI({ openCloseModal, handleGalleryClick }) {
 
   const apiTests = [
     {
@@ -28,6 +28,23 @@ export default function TestMyAPI({ openCloseModal }) {
         <div className="default__margin-top simple-container">
           <ul className="mobile-desktop__flex">
             {apiTests.map((test, index) => {
+              if (index === 1 || index === 2) {
+                return (
+                  <li
+                    key={index}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      openCloseModal(index);
+                      handleGalleryClick(true);
+                    }}
+                  >
+                    <h2>{test.title}</h2>
+                    <div className="icon-div">
+                      <i className={test.icon}></i>
+                    </div>
+                  </li>
+                );
+              }
               return (
                 <li
                   key={index}

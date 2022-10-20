@@ -11,25 +11,18 @@ import Modal from "../components/modal";
 
 const IndexPage = () => {
   const [user, setUser] = useState(null);
+
   const getUser = (user) => {
     setUser(user);
   };
-    /* useEffect(() => {
-      const fetchUser = async () => {
-        await fetch("http://localhost:8000/api/logged")
-          .then((res) => res.json())
-          .then((data) => console.log(data), (error) => console.log(error));
-      };
-
-      fetchUser();
-    }, []); */
-    useEffect(() => {
-      const loggedInUser = localStorage.getItem("user");
-      if (loggedInUser) {
-        const foundUser = JSON.parse(loggedInUser);
-        setUser(foundUser);
-      }
-    }, []);
+    
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setUser(foundUser);
+    }
+  }, []);
 
   const [isShown, setIsShown] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -37,6 +30,8 @@ const IndexPage = () => {
   const [userForm, setUserForm] = useState(false);
   const [galleryForm, setGalleryForm] = useState(false);
   const [searchForm, setSearchForm] = useState(false);
+
+  const [galleryClick, setGalleryClick] = useState(false);
 
   const openCloseNav = (e) => {
     e.preventDefault();
@@ -67,27 +62,37 @@ const IndexPage = () => {
     }
   };
 
+  const handleGalleryClick = (bool) => {
+    setGalleryClick(bool);
+  }
+
   return (
     <>
+      {showModal && (
+        <Modal
+          getUser={getUser}
+          onCloseRequest={onCloseRequest}
+          userForm={userForm}
+          galleryForm={galleryForm}
+          searchForm={searchForm}
+          handleGalleryClick={handleGalleryClick}
+          galleryClick={galleryClick}
+        />
+      )}
       <Layout isShown={isShown} openCloseNav={openCloseNav}>
         {user && (
-          <p>
-            Welcome to my world <span>{user.pseudo}</span>
-          </p>
-        )}
-        {showModal && (
-          <Modal
-            getUser={getUser}
-            onCloseRequest={onCloseRequest}
-            userForm={userForm}
-            galleryForm={galleryForm}
-            searchForm={searchForm}
-          />
+          <h2 className="center-text">
+            Welcome to my world{" "}
+            <span className="yellow-text capitalize-text">{user.pseudo}</span>
+          </h2>
         )}
         <Home openCloseNav={openCloseNav} />
         <About />
         <Work />
-        <TestMyAPI openCloseModal={openCloseModal} />
+        <TestMyAPI
+          openCloseModal={openCloseModal}
+          handleGalleryClick={handleGalleryClick}
+        />
         <Contact />
       </Layout>
     </>

@@ -25,10 +25,15 @@ export default function GalleryForm({ unknownError }) {
 
   return (
     <>
-      
-      <h2>Drop your images here</h2>
-      <GalleryDropzone onDrop={onDrop} files={files} unknownError={unknownError} />
-      <ImageGrid images={images} />
+      <div className="gallery__container">
+        <h2 className="mb-2">Drop your images here</h2>
+        <GalleryDropzone
+          onDrop={onDrop}
+          files={files}
+          unknownError={unknownError}
+        />
+        <ImageGrid images={images} />
+      </div>
     </>
   );
 }

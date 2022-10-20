@@ -79,7 +79,7 @@ export default function GalleryDropzone({ onDrop, files, unknownError }) {
       {message && <p className="blue-text">{message}</p>}
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       {logged && (
-        <div>
+        <div className="drop-here__container">
           <div {...getRootProps()}>
             <input {...getInputProps()} accept={"image/*"} />
             {isDragActive ? (
@@ -91,7 +91,7 @@ export default function GalleryDropzone({ onDrop, files, unknownError }) {
               </p>
             )}
           </div>
-          <button onClick={sendImages}>Upload Images</button>
+          <button className="yellow-text" onClick={sendImages}>Upload Images</button>
         </div>
       )}
     </>

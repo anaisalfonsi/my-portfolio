@@ -71,8 +71,7 @@ main {
 }
 
 section {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
     padding: 4rem 8rem;
 }
 
@@ -88,6 +87,13 @@ section:nth-child(even):not(:first-child) h1 {
     width: 100%;
     max-width: 700px;
     margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+    section {
+        width: 100vw;
+        height: 100vh;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -108,10 +114,10 @@ h1 {
 }
 
 h2, h3 {
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
-@media (min-width: 320px) {
+@media (min-width: 460px) {
     h2, h3 {
         font-size: 3rem;
     }
@@ -168,7 +174,8 @@ form {
     align-items: center;
 }
 
-input {
+input, select {
+    border: none;
     width: 100%;
     max-width: 300px;
     padding: 1rem;
@@ -194,11 +201,51 @@ label {
     align-items: center;
 }
 
+.mt-05 {
+    margin-top: 0.5rem;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mb-05 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
 .default__margin-top {
     margin-top: 3rem;
 }
 
-.notice-message {
+.default__margin-bottom {
+    margin-bottom: 2rem;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.capitalize-text {
+    text-transform: capitalize;
+}
+
+.upper-text {
+    text-transform: uppercase;
+}
+
+.yellow-text {
     color: var(--yellow);
 }
 
