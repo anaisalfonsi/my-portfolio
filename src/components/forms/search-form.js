@@ -39,10 +39,6 @@ export default function SearchForm() {
     fetchTarotCards();
   }, []);
 
-    useEffect(() => {
-      console.log("useEffect on");
-    }, [allCards]);
-
   const handleChange = (value) => {
     setValue(value);
   };
