@@ -1,6 +1,6 @@
 import * as React from "react";
-import "./cover.css";
-import Logo from "../images/yellow-logo.png";
+import "../assets/css/cover.css";
+import Logo from "../assets/images/logos/yellow-logo.png";
 
 export default function Cover({ openCloseNav }) {
   

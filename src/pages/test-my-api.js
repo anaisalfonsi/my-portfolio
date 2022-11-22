@@ -1,8 +1,8 @@
 import * as React from "react";
-import "./testMyAPI.css";
+import "../assets/css/test-my-api.css";
 
 export default function TestMyAPI({ openCloseModal, handleGalleryClick }) {
-
+  
   const apiTests = [
     {
       title: "Create an account",

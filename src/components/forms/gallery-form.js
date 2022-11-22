@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState, useCallback } from "react";
 import GalleryDropzone from "../galleryDropzone";
 import ImageGrid from "../imageGrid";
-import "../modal.css";
+import "../../assets/css/modal.css";
 
 export default function GalleryForm({ unknownError }) {
   const [images, setImages] = useState([]);

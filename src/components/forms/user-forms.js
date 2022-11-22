@@ -1,8 +1,12 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
-import "../modal.css";
+import { useState, useEffect, useCallback } from "react";
+import { useDispatch } from "react-redux";
+import ReduxWrapper from "../../redux/wrap-with-provider";
+import { login, logout } from "../../services/actions/auth";
+import "../../assets/css/modal.css";
 
-export default function UserForms({ headers, unknownError, getUser }) {
+
+const UserForms = ({ headers, unknownError }) => {
     
     const [message, setMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
@@ -13,9 +17,10 @@ export default function UserForms({ headers, unknownError, getUser }) {
 
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
-    const [userPseudo, setUserPseudo] = useState("");
 
     const [showLogin, setShowLogin] = useState(false);
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
       const clearMessage = setInterval(() => {
@@ -58,8 +63,11 @@ export default function UserForms({ headers, unknownError, getUser }) {
       e.preventDefault();
       if (loginEmail.trim() === "" || loginPassword.trim() === "") {
         setErrorMessage("Email and/or Password can not be empty");
-      } else {
-        try {
+        } else {
+          dispatch(login(loginEmail, loginPassword)).then(() => {
+            window.location.reload();
+          });
+        /* try {
           const res = await fetch("http://localhost:8000/api/login", {
             method: "POST",
             headers: headers,
@@ -84,7 +92,6 @@ export default function UserForms({ headers, unknownError, getUser }) {
           const userData = await res.json();
 
           if (res.status === 200) {
-            setUserPseudo(userData.pseudo);
             const user = {
               id: userData.id,
               pseudo: userData.pseudo,
@@ -94,16 +101,20 @@ export default function UserForms({ headers, unknownError, getUser }) {
             localStorage.setItem("user", JSON.stringify(user));
             setLoginEmail("");
             setLoginPassword("");
-            setMessage(`You are logged in ${userPseudo}`);
+            setMessage(`You are logged in ${user.pseudo}`);
           }
         } catch (err) {
           setErrorMessage(err.message);
-        }
+        } */
       }
     };
 
-    const logoutSubmit = async (e) => {
-      e.preventDefault();
+    const logoutSubmit = useCallback(() => {
+      dispatch(logout());
+    }, [dispatch]);
+
+    /* const logoutSubmit = () => {
+      logout();
       try {
         const res = await fetch("http://localhost:8000/api/logout", {
           method: "GET",
@@ -117,19 +128,15 @@ export default function UserForms({ headers, unknownError, getUser }) {
         }
 
         if (res.status === 204) {
-          setMessage(`Goodbye ${userPseudo}!`);
-          const clearUser = setInterval(() => {
-            getUser(null);
-            setUserPseudo("");
-            localStorage.clear();
-          }, 5000);
-          return () => clearInterval(clearUser);
+          setMessage(`Goodbye ${userData.pseudo}!`);
+          getUser(null);
+          localStorage.clear();
         }
 
       } catch (err) {
         setErrorMessage(err.message);
-      }
-    }
+      } 
+    } */
 
     const showHideForm = () => {
       setShowLogin((current) => !current);
@@ -246,3 +253,9 @@ export default function UserForms({ headers, unknownError, getUser }) {
     </>
   );
 }
+
+const WrappedUserForms = () => (
+  <ReduxWrapper element={<UserForms />} />
+);
+
+export default WrappedUserForms;
