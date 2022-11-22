@@ -40,11 +40,10 @@ export default function GalleryDropzone({ onDrop, files, unknownError }) {
         const formData = new FormData();
         
         files.map((file) => {
-          formData.append("file[]", file);
+          return formData.append("file[]", file);
           // console.log(file);
         });
 
-        console.log(formData);
         try {
           const res = await fetch(`http://localhost:8000/api/users/${user.id}/images`, {
               method: "POST",

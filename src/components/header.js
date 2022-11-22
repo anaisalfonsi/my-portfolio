@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./header.css";
+import "../assets/css/header.css";
 import { Link } from "gatsby";
 import { useLocation } from "@reach/router";
 
@@ -24,23 +24,23 @@ export default function Header({ isShown, openCloseNav }) {
           </div>
           <ul className={isShown ? "show" : "hide"}>
             <li>
-              <a href="#home">Home</a>
+              <Link to="/home">Home</Link>
             </li>
             <li>
-              <a href="#about">About Me</a>
+              <Link to="/about">About Me</Link>
             </li>
             <li>
               {location.pathname === "/perso" ? (
-                <a href="#passions">Passions & Skills</a>
+                <Link to="/passions">Passions & Skills</Link>
               ) : (
-                <a href="#work">Work & Skills</a>
+                <Link to="/work">Work & Skills</Link>
               )}
             </li>
             <li>
-              <a href="#test-my-api">Test My API</a>
+              <Link to="/test-my-api">Test My API</Link>
             </li>
             <li>
-              <a href="#contact">Contact</a>
+              <Link to="/contact">Contact</Link>
             </li>
             <li>
               <button onClick={openCloseNav}>Close</button>

@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./work.css";
+import "../assets/css/work.css";
 
 export default function Work() {
   return (

@@ -1,28 +1,48 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import ReduxWrapper from "../redux/wrap-with-provider";
+import UserService from "../services/user.service";
+
 import Layout from "../components/layout";
 
-import Home from "./sections/home";
-import About from "./sections/about";
-import Work from "./sections/work";
-import Contact from "./sections/contact";
-import TestMyAPI from "./sections/testMyApi";
+import Home from "./home";
+import About from "./about";
+import Work from "./work";
+import Contact from "./contact";
+import TestMyAPI from "./test-my-api";
 import Modal from "../components/modal";
+import "../assets/css/imports.css";
 
 const IndexPage = () => {
   const [user, setUser] = useState(null);
+  const [content, setContent] = useState("");
 
-  const getUser = (user) => {
-    setUser(user);
-  };
+  const { user: currentUser } = useSelector((state) => state.auth);
     
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
-      const foundUser = JSON.parse(loggedInUser);
-      setUser(foundUser);
+      UserService.getUserBoard().then(
+        (response) => {
+          setUser(response.data);
+        },
+        (error) => {
+          const _content =
+            (error.response && error.response.data) ||
+            error.message ||
+            error.toString();
+
+          setContent(_content);
+        }
+      );
     }
+    
   }, []);
+
+  useEffect(() => {
+    console.log(currentUser.token);
+  }, [user]);
 
   const [isShown, setIsShown] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -70,7 +90,6 @@ const IndexPage = () => {
     <>
       {showModal && (
         <Modal
-          getUser={getUser}
           onCloseRequest={onCloseRequest}
           userForm={userForm}
           galleryForm={galleryForm}
@@ -99,4 +118,8 @@ const IndexPage = () => {
   );
 }
 
-export default IndexPage;
+const WrappedHome = () => (
+  <ReduxWrapper element={<IndexPage />} />
+);
+
+export default WrappedHome;

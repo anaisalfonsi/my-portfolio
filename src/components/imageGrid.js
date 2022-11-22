@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./modal.css";
+import "../assets/css/modal.css";
 
 export default function ImageGrid({ images }) {
   return (

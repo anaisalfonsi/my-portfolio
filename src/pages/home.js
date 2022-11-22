@@ -1,6 +1,6 @@
 import * as React from "react";
-import "./home.css";
-import Cover from "../../components/cover";
+import "../assets/css/home.css";
+import Cover from "../components/cover";
 
 export default function Home( {openCloseNav}) {
   return (

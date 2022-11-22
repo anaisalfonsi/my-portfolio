@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import "../modal.css";
+import "../../assets/css/modal.css";
 
 export default function SearchForm() {
 
@@ -40,7 +40,7 @@ export default function SearchForm() {
   }, []);
 
     useEffect(() => {
-      console.log("useEffect on");
+      console.log(allCards);
     }, [allCards]);
 
   const handleChange = (value) => {
@@ -69,7 +69,7 @@ export default function SearchForm() {
       ),
     ]);
 
-    if (cardName == "") {
+    if (cardName === "") {
       setFilteredCards([]);
     }
   };

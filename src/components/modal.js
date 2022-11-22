@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import UserForms from "./forms/user-forms";
 import GalleryForm from "./forms/gallery-form";
 import SearchForm from "./forms/search-form";
-import "./modal.css";
+import "../assets/css/modal.css";
 
-export default function Modal({ getUser, onCloseRequest, userForm, galleryForm, searchForm, handleGalleryClick, galleryClick }) {
+export default function Modal({ userData, getUser, onCloseRequest, userForm, galleryForm, searchForm, handleGalleryClick, galleryClick }) {
 
   useEffect(() => {
     /* const handleOutsideClick = (e) => {
@@ -54,6 +54,7 @@ export default function Modal({ getUser, onCloseRequest, userForm, galleryForm, 
             <UserForms
               headers={headers}
               unknownError={unknownError}
+              userData={userData}
               getUser={getUser}
             />
           )}
