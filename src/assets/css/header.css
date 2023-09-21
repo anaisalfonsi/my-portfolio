@@ -6,19 +6,9 @@ header {
     height: 100%;
     display: flex;
     align-items: center;
-    padding-left: 8rem;
     text-align: end;
     background-color: var(--black);
     z-index: 50;
-}
-
-header::after {
-    content: "";
-    width: 0.5px;
-    height: 90%;
-    background: linear-gradient(0deg, var(--white) 70%, var(--blue)25%, var(--white));
-    position: absolute;
-    left: 4rem;
 }
 
 .navbar__container > div:first-child {
@@ -35,33 +25,16 @@ header::after {
     transition: all 0.8s ease;
 }
 
-.navbar__container > div:first-child a {
-    display: inline-block;
-    background-color: var(--black);
-    color: var(--blue);
-    font-size: 15px;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 1rem 2rem;
-}
-
-.navbar__container > div:first-child:hover a {
-    font-size: 14px;
-}
-
-.navbar__container > div:first-child:hover {
-    width: 88%;
-}
-
 .navbar__container > ul > li {
     margin: 3rem 0;
     padding-right: 1rem;
 }
 
 .navbar__container a {
-    font-size: 19px;
-    font-weight: 700;
-    font-family: var(--fontWork);
+    font-size: 25px;
+    font-weight: 100;
+    font-family: var(--fRose);
+    color: var(--white);
 }
 
 .navbar__container a:hover {

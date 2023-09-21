@@ -18,5 +18,15 @@ module.exports = {
         icon: "src/assets/images/logos/logo.png",
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Red Rose`,
+          `montserrat`, // you can also specify font weights and styles
+        ],
+        display: "swap",
+      },
+    },
   ],
 };

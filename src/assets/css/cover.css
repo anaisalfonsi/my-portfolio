@@ -6,10 +6,15 @@
 .cover {
     width: 100%;
     height: 100vh;
-    background-color: var(--black);
+    /* background-color: var(--black); */
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.cover div:not(.cover > div:first-child) {
+    width: 100%;
+    height: 100%;
 }
 
 .cover h1 {
@@ -23,6 +28,7 @@
 
 .cover > div:first-child > ul li {
     text-align: center;
+    font-family: var(--fRose);
     font-size: 2.5rem;
 }
 
@@ -31,7 +37,7 @@
 .cover > div:first-child > ul li:nth-child(7),
 .cover > div:first-child > ul li:nth-child(8),
 .cover > div:first-child > ul li:nth-child(9) {
-    color: var(--yellow);
+    color: var(--newRed);
 }
 
 .triangle {
@@ -39,6 +45,51 @@
     background-size: contain;
     width: 250px;
     height: 300px;
+}
+
+.test_crosses {
+    width: 500px !important;
+    margin: 0 auto;
+    background-color: var(--black);
+}
+
+.test_crosses > ul {
+    width: 140px;
+    margin: 0 auto;
+    background-color: var(--black);
+    border-width: 3px;
+    border-style: solid;
+    border-image: 
+    linear-gradient(
+      to bottom, 
+      red, 
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+}
+
+.test_crosses > ul > li {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    margin: 0 auto;
+}
+
+.test_crosses > ul > li::before, .test_crosses > ul > li::after {
+  position: absolute;
+  content: "";
+  left: calc(50% - 3px);
+  height: 220px;
+  width: 8px;
+  background-color: var(--newRed);
+  border-radius: 50%;
+}
+
+.test_crosses > ul > li::before {
+  transform: rotate(45deg);
+}
+
+.test_crosses > ul > li::after {
+  transform: rotate(-45deg);
 }
 
 .cover .logo {
@@ -88,6 +139,6 @@
 
 @media (min-width: 768px) and (min-height: 600px) {
     .cover > div:first-child > ul li {
-        font-size: 4rem;
+        font-size: 3.6rem;
     }
 }

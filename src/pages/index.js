@@ -16,32 +16,35 @@ import "../assets/css/imports.css";
 
 const IndexPage = () => {
   const [user, setUser] = useState(null);
-  const [content, setContent] = useState("");
+  const [userError, setUserError] = useState("");
 
   const { user: currentUser } = useSelector((state) => state.auth);
     
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
-      UserService.getUserBoard().then(
+      UserService.getUserBoard()/*.then(
         (response) => {
           setUser(response.data);
+          console.log(user + "whaaat");
         },
         (error) => {
-          const _content =
+          const _error =
             (error.response && error.response.data) ||
             error.message ||
             error.toString();
 
-          setContent(_content);
+          setUserError(_error);
         }
-      );
+      );*/
+    } else {
+      console.log("pas d'user");
     }
     
   }, []);
 
   useEffect(() => {
-    console.log(currentUser.token);
+    if (currentUser) console.log(currentUser.token);
   }, [user]);
 
   const [isShown, setIsShown] = useState(true);

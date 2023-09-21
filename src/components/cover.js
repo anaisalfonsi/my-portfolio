@@ -13,9 +13,9 @@ export default function Cover({ openCloseNav }) {
             <li>A</li>
             <li>N</li>
             <li>A</li>
-            <li onClick={openCloseNav}>
+            {/*  <li onClick={openCloseNav}>
               <img className="logo" src={Logo} alt="logo" />
-            </li>
+            </li> */}
             <li>S</li>
             <li>&#x2043;</li>
             <li>A</li>
@@ -29,7 +29,13 @@ export default function Cover({ openCloseNav }) {
         </div>
         <div>
           <div className="triangle__container">
-            <div className="triangle"></div>
+            <div className="test_crosses">
+              <ul>
+                {[...Array(10)].map((e, cross) => {
+                  return <li key={cross}></li>;
+                })}
+              </ul>
+            </div>
             {/* <h2>Creative Developer</h2> */}
           </div>
         </div>

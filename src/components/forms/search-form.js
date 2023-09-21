@@ -40,7 +40,7 @@ export default function SearchForm() {
   }, []);
 
     useEffect(() => {
-      console.log(allCards);
+      //console.log(allCards);
     }, [allCards]);
 
   const handleChange = (value) => {

@@ -29,12 +29,15 @@ Version: 1.0
     --yellow: rgba(255,217,102,1); /* #ffd966 */
     --blue: rgba(110,188,255,1); /* #6ebcff */
     --red: rgba(152,0,40,1); /* #980028 */
-    --lightGray: rgba(232,232,233,1); /* #e8e8e9 */
-    --black: rgba(28,28,30,1); /* #1c1c1e */
-    --white: rgba(247,247,245,1);/* #F7F7F5 */
+    --newRed: rgba(232,25,16,1); /*#e81910*/
+    --lightRed: rgba(254,131,122,1); /*#fe837a*/
+    --lightGreen: 	rgba(208,240,192,1); /* #D0F0C0 */
+    --lightGray: rgba(204,198,196,1); /* #ccc6c4 */
+    --black: rgba(28,28,30,1) ; /* #1c1c1e */
+    --white: rgba(250,249,247,1);/* #faf9f7 */
 
-    --fontWork: 'Work Sans', sans-serif;
-    --fontRaleway: 'Raleway', sans-serif;
+    --fMontserrat: 'Montserrat', sans-serif;
+    --fRose: 'Red Rose', sans-serif;
 }
 
 /* Elements
@@ -54,12 +57,12 @@ html {
 }
 
 body {
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--lightGray);
+    color: var(--black);
     font-size: 1.6rem;
     line-height: 1.265;
     font-weight: 400;
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--fMontserrat), sans-serif;
     hyphens: none;
 }
 
@@ -76,7 +79,7 @@ section {
 }
 
 section:nth-child(even):not(:first-child) {
-    background-color: var(--lightGray);
+    background-color: var(--black);
 }
 
 section:nth-child(even):not(:first-child) h1 {
@@ -102,15 +105,13 @@ section:nth-child(even):not(:first-child) h1 {
     }
 }
 
-h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
+    font-family: var(--fRose);
 }
 
 h1 {
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 700;
-    font-size: 6rem;
-    color: var(--lightGray);
+    font-size: 4rem;
 }
 
 h2, h3 {
@@ -153,6 +154,7 @@ button, .button {
     cursor: pointer;
     border-bottom: 1px solid var(--white);
     color: var(--white);
+    font-family: var(--fMontserrat);
     font-size: 16px;
     font-weight: 400;
     padding-bottom: 4px;
@@ -254,7 +256,7 @@ label {
 }
 
 .error-message {
-    color: red;
+    color: var(--newRed);
     font-size: 18px;
 }
 

@@ -1,4 +1,5 @@
 .footer__container {
-    border-top: 2px solid var(--yellow);
     padding: 8rem;
+    background: linear-gradient(120deg, var(--black) 85%, var(--newRed), var(--lightRed));
+    color: var(--lightGray);
 }

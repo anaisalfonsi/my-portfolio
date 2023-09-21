@@ -19,14 +19,14 @@
     margin-bottom: 2rem;
     padding-top: 2rem;
     text-align: center;
-    background-color: rgba(110,188,255,0.8);
-    color: var(--black);
-    border: 15px inset var(--blue);
+    background-color: var(--black);
+    color: var(--lightGreen);
+    border: 15px inset var(--lightGreen);
     transition: 0.5s ease;
 }
 
 .testApi li:nth-child(2) {
-    border: 15px outset var(--blue);
+    border: 15px outset var(--white);
 }
 
 .testApi li:hover {
@@ -35,7 +35,7 @@
 
 .testApi .icon-div i {
     font-size: 30px;
-    color: var(--black);
+    color: var(--white);
 }
 
 
