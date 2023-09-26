@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../assets/css/header.css";
+import "../../assets/css/header.css";
 import { Link } from "gatsby";
 import { useLocation } from "@reach/router";
 

@@ -1,9 +1,9 @@
 import * as React from "react";
 import { useState, useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
-import ReduxWrapper from "../../redux/wrap-with-provider";
-import { login, logout } from "../../services/actions/auth";
-import "../../assets/css/modal.css";
+import ReduxWrapper from "../../../redux/wrap-with-provider";
+import { login, logout } from "../../../services/actions/auth";
+import "../../../assets/css/modal.css";
 
 
 const UserForms = ({ headers, unknownError }) => {

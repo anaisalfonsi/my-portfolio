@@ -11,7 +11,7 @@ export default function GalleryDropzone({ onDrop, files, unknownError }) {
   const [logged, setLogged] = useState(false);
 
   useEffect(() => {
-    !localStorage.getItem("user") ? setErrorMessage("You must be logged in to upload pictures") : setLogged(true);
+    !localStorage.getItem("user") ? setErrorMessage("You must be logged in order to upload pictures") : setLogged(true);
   }, []);
 
   useEffect(() => {

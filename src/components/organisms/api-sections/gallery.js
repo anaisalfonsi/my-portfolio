@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useState, useCallback } from "react";
-import GalleryDropzone from "../galleryDropzone";
-import ImageGrid from "../imageGrid";
-import "../../assets/css/modal.css";
+import GalleryDropzone from "../../molecules/forms/gallery-dropzone";
+import ImageGrid from "../../molecules/gallery-grid";
+import "../../../assets/css/modal.css";
 
 export default function GalleryForm({ unknownError }) {
   const [images, setImages] = useState([]);
@@ -13,10 +13,7 @@ export default function GalleryForm({ unknownError }) {
     acceptedFiles.map((file) => {
       const reader = new FileReader();
       reader.onload = function (e) {
-        setImages((prevState) => [
-          ...prevState,
-          { src: e.target.result },
-        ]);
+        setImages((prevState) => [...prevState, { src: e.target.result }]);
       };
       reader.readAsDataURL(file);
       return file;

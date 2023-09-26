@@ -1,8 +1,8 @@
 import * as React from "react";
-import "../assets/css/layout.css";
+import "../../assets/css/layout.css";
 
-import Header from "./header";
-import Footer from "./footer";
+import Header from "../organisms/header";
+import Footer from "../organisms/footer";
 
 export default function Layout({ children, isShown, openCloseNav }) {
 

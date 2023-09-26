@@ -4,14 +4,14 @@ import { useSelector } from "react-redux";
 import ReduxWrapper from "../redux/wrap-with-provider";
 import UserService from "../services/user.service";
 
-import Layout from "../components/layout";
+import Layout from "../components/templates/layout";
 
 import Home from "./home";
 import About from "./about";
 import Work from "./work";
 import Contact from "./contact";
 import TestMyAPI from "./test-my-api";
-import Modal from "../components/modal";
+import Modal from "../components/templates/modal";
 import "../assets/css/imports.css";
 
 const IndexPage = () => {

@@ -1,0 +1,82 @@
+.shapes__section .shapes > li {
+    margin: 30px 0;
+}
+
+.shapes__section .shapes > li > span,
+.shapes__section .shapes > li > div > span {
+    display: inline-block;
+    position: relative;
+}
+
+.shapes__section .shapes > li > span, 
+.shapes__section .shapes > li > span::before,
+.shapes__section .shapes > li > span::after {
+    color: white;
+    background-color: var(--newRed);
+}
+
+.heart {
+    width: 30px;
+    height: 30px;
+    transform: rotate(-45deg);
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  
+}
+
+.heart::before {
+    top: -18px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 18px;
+}
+
+.gemstone-box {
+    width: 60px !important;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--newRed);
+}
+
+.gemstone {
+    width: 30px;
+    height: 17.3205px;
+    top: 21px;
+    left: 15px;
+    background-color: var(--lightRed);
+}
+
+.gemstone::before {
+    position: absolute;
+    content: "";
+    top: -8.66025px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 8.66025px solid var(--lightRed);
+}
+
+.gemstone::after {
+  content: "";
+  position: absolute;
+  bottom: -8.66025px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 8.66025px solid var(--lightRed);
+}
+

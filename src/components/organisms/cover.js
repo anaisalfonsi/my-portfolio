@@ -1,6 +1,7 @@
 import * as React from "react";
-import "../assets/css/cover.css";
-import Logo from "../assets/images/logos/yellow-logo.png";
+import "../../assets/css/cover.css";
+import Logo from "../../assets/images/logos/yellow-logo.png";
+import Shapes from "../atoms/shapes/shapes";
 
 export default function Cover({ openCloseNav }) {
   
@@ -37,6 +38,7 @@ export default function Cover({ openCloseNav }) {
               </ul>
             </div>
             {/* <h2>Creative Developer</h2> */}
+            <Shapes />
           </div>
         </div>
       </div>

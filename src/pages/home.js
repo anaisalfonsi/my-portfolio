@@ -1,6 +1,6 @@
 import * as React from "react";
 import "../assets/css/home.css";
-import Cover from "../components/cover";
+import Cover from "../components/organisms/cover";
 
 export default function Home( {openCloseNav}) {
   return (

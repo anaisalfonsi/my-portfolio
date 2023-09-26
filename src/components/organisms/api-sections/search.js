@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import "../../assets/css/modal.css";
+import "../../../assets/css/modal.css";
 
 export default function SearchForm() {
 
@@ -17,7 +17,7 @@ export default function SearchForm() {
       await fetch("http://localhost:8000/api/tarot_cards")
         .then((res) => res.json())
         .then((data) => data["hydra:member"].map((card) => {
-            setAllCards((prevState) =>
+            return /* return à enlever si bug */ setAllCards((prevState) =>
               [...prevState, card].sort((a, b) => {
                 return a.number - b.number;
               }))
