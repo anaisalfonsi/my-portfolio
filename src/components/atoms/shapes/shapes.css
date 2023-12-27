@@ -41,19 +41,43 @@
     left: 18px;
 }
 
+
+    .diamond {
+    background-color: transparent !important;
+      width: 0;
+      height: 0;
+      border: 50px solid transparent;
+      border-bottom: 70px solid red;
+      top: -50px;
+    }
+    .diamond::after {
+      content: "";
+      background-color: transparent !important;
+      position: absolute;
+      left: -50px;
+      top: 70px;
+      width: 0;
+      height: 0;
+      border: 50px solid transparent;
+      border-top: 70px solid red;
+    }
+
 .gemstone-box {
     width: 60px !important;
     height: 60px;
     border-radius: 50%;
     background-color: var(--newRed);
+    background-image: linear-gradient(to top, rgba(255,255,255,0.0), rgba(255,255,255,0.15));
+    border: 12px inset rgba(255,255,255,0.15);
 }
 
 .gemstone {
     width: 30px;
     height: 17.3205px;
-    top: 21px;
-    left: 15px;
+    top: calc(21px - 12px);
+    left: calc(15px - 12px);
     background-color: var(--lightRed);
+    transform: scale(1.2);
 }
 
 .gemstone::before {
